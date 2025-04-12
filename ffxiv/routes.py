@@ -12,17 +12,10 @@ router = APIRouter(
 
 @router.get("/get_market_data")
 async def api_get_market_data(
-    server_name: str = Query(..., description="The server name to query"),
-    item_name: str = Query(..., description="The item name to search for"),
-    hq: bool = Query(False, description="Filter for high-quality items only"),
+    server_name: str = Query(..., description="陆行鸟..."),
+    item_name: str = Query(..., description="无瑕白..."),
+    hq: bool = Query(False, description="是否hq"),
 ):
-    """
-    Get market data for a specific item on a specific server.
-    
-    - **server_name**: Server name to query (e.g., "Moogle", "Tonberry")
-    - **item_name**: The item name to search for
-    - **hq**: Filter for high-quality items only (default: False)
-    """
     try:
         result = await get_market_data(server_name, item_name, hq)
         return {"status": "success", "data": result}
